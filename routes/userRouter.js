@@ -16,5 +16,6 @@ userRouter.get('/', function(req, res, next) {
 
 userRouter.get('/get', userHandler.getAll);
 userRouter.post('/register', userHandler.register);
+userRouter.post('/login', userHandler.login);
 
 module.exports = userRouter;

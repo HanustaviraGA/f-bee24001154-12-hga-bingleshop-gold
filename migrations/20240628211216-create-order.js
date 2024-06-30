@@ -27,12 +27,15 @@ module.exports = {
       total_price: {
         type: Sequelize.FLOAT
       },
+      status: {
+        type: Sequelize.STRING
+      },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });

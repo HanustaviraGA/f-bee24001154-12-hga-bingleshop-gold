@@ -17,5 +17,6 @@ const orderService = new OrderService(orderRepository, itemRepository, userRepos
 const orderHandler = new OrderHandler(orderService);
 
 orderRouter.post('/addorder', orderHandler.addOrder);
+orderRouter.put('/updateorder', orderHandler.updateOrder);
 
 module.exports = orderRouter;

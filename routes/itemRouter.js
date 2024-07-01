@@ -9,6 +9,7 @@ const itemRepository = new ItemRepository();
 const itemService = new ItemService(itemRepository);
 const itemHandler = new ItemHandler(itemService);
 
+itemRouter.get('/getallitem', itemHandler.getAllItem);
 itemRouter.get('/getitem', itemHandler.getItemByBrand);
 itemRouter.post('/additem', itemHandler.createItem);
 

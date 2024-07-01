@@ -31,6 +31,25 @@ class OrderService{
         }
     }
 
+    async getOrderByTransactionCode(code){
+        const orderInfo = this.orderRepository.getOrderByTransactionCode(code);
+        if(orderInfo){
+            return {status: 200, data: orderInfo}
+        }else{
+            return {status: 404, message: "Order not found"}
+        }
+    }
+
+    async updateOrder(body){
+        const orderInfo = await this.orderRepository.getOrderByTransactionCode(body);
+        if(orderInfo){
+            const updates = await this.orderRepository.updateOrderStatus(body);
+            return {status: 200, message: "Order updated"}
+        }else{
+            return {status: 404, message: "Order not found"}
+        }
+    }
+
     // Utility
     generateRandomCode() {
         const prefix = 'BGL';

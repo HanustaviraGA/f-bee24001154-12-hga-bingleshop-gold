@@ -7,6 +7,15 @@ class OrderRepository{
         const orderList = await order.findAll();
         return orderList;
     }
+
+    async getOrderByTransactionCode(orderdata){
+        const orderList = await order.findAll({
+            where: {
+                transaction_code: orderdata.transaction_code
+            }
+        });
+        return orderList
+    }
     
     async createOrder(orderdata) {
         const createdOrder = await order.create({
@@ -20,6 +29,18 @@ class OrderRepository{
         });
   
         return createdOrder;
+    }
+
+    async updateOrderStatus(orderdata){
+        const updatedOrder = await order.update({
+            status: orderdata.status
+        }, {
+            where: {
+                transaction_code: orderdata.transaction_code
+            }
+        });
+  
+        return updatedOrder;
     }
 }
 

@@ -4,6 +4,10 @@ const { Op } = require('sequelize');
 class ItemRepository{
     constructor(){  }
 
+    async getAllItem(){
+        return await item.findAll();
+    }
+
     async getItemByBrand(brandname) {
         return await item.findAll({
             where: {
